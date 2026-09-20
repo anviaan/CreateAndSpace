@@ -1,0 +1,16 @@
+{
+  "main_menu": {
+    "top_left": [],
+    "top_right": ["v3.2"],
+    "bottom_left": [],
+    "bottom_right": [],
+    "mod_blacklist": []
+  },
+  "pause_menu": {
+    "top_left": [],
+    "top_right": ["v3.2"],
+    "bottom_left": [],
+    "bottom_right": [],
+    "mod_blacklist": []
+  }
+}

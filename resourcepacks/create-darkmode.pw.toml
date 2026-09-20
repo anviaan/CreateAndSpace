@@ -1,0 +1,14 @@
+name = "Create Darkmode"
+filename = "Create_Darkmode_v0.0.2.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "28ff5f8ad3f678ae4314c00ba964943e8ccc8ffb"
+mode = "url"
+url = "https://edge.forgecdn.net/files/4556/118/Create_Darkmode_v0.0.2.zip"
+
+[update]
+[update.curseforge]
+file-id = 4556118
+project-id = 865903

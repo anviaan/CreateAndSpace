@@ -1,0 +1,206 @@
+name: Release Modpack
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+env:
+  PACK_NAME: CreateAndSpace
+  MINECRAFT_VERSION: '1.20.1'
+  FABRIC_LOADER: '0.16.9'
+  FABRIC_INSTALLER: '1.1.2'
+
+jobs:
+  build:
+    name: Build modpack artifacts
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Extract version from tag
+        id: version
+        shell: bash
+        run: echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Prepare release changelog
+        env:
+          RELEASE_VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          python3 - <<'PY'
+          import os
+          import re
+          from pathlib import Path
+
+          version = os.environ["RELEASE_VERSION"]
+          changelog = Path("CHANGELOG.md").read_text(encoding="utf-8")
+          header = re.compile(rf"^## \[{re.escape(version)}\](?:\s+-.*)?\s*$", re.MULTILINE)
+          match = header.search(changelog)
+          if not match:
+              raise SystemExit(f"CHANGELOG.md has no entry for [{version}]")
+
+          remainder = changelog[match.end():]
+          next_entry = re.search(r"^## \[", remainder, re.MULTILINE)
+          end = match.end() + next_entry.start() if next_entry else len(changelog)
+          Path("release-changelog.md").write_text(
+              changelog[match.start():end].strip() + "\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.24'
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Install packwiz
+        shell: bash
+        run: |
+          set -euo pipefail
+          go install github.com/packwiz/packwiz@latest
+          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
+
+      - name: Refresh pack index
+        run: packwiz refresh --build
+
+      - name: Export Modrinth pack
+        run: packwiz modrinth export -o "${{ env.PACK_NAME }}-${{ steps.version.outputs.version }}.mrpack"
+
+      - name: Export CurseForge pack
+        run: packwiz curseforge export -o "${{ env.PACK_NAME }}-${{ steps.version.outputs.version }}-curseforge.zip"
+
+      - name: Build server pack
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          curl -fsSL -o packwiz-installer-bootstrap.jar \
+            https://github.com/packwiz/packwiz-installer-bootstrap/releases/latest/download/packwiz-installer-bootstrap.jar
+          curl -fsSL -o fabric-installer.jar \
+            "https://maven.fabricmc.net/net/fabricmc/fabric-installer/${{ env.FABRIC_INSTALLER }}/fabric-installer-${{ env.FABRIC_INSTALLER }}.jar"
+
+          packwiz serve > packwiz-serve.log 2>&1 &
+          SERVE_PID=$!
+          trap 'kill "$SERVE_PID" 2>/dev/null || true' EXIT
+
+          for attempt in {1..30}; do
+            if curl -fsS http://127.0.0.1:8080/pack.toml >/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:8080/pack.toml >/dev/null
+
+          mkdir -p server-pack
+          (
+            cd server-pack
+            java -jar ../fabric-installer.jar server \
+              -mcversion "${{ env.MINECRAFT_VERSION }}" \
+              -loader "${{ env.FABRIC_LOADER }}" \
+              -downloadMinecraft
+            java -jar ../packwiz-installer-bootstrap.jar -g -s server \
+              http://127.0.0.1:8080/pack.toml
+
+            rm -rf resourcepacks shaderpacks
+            rm -f options.txt PotatoShaders_v1.0d.zip
+
+            cat > LaunchServer.sh <<'EOF'
+          #!/usr/bin/env sh
+          exec java -Xmx4G -jar fabric-server-launch.jar nogui
+          EOF
+            chmod +x LaunchServer.sh
+
+            cat > LaunchServer.bat <<'EOF'
+          @echo off
+          java -Xmx4G -jar fabric-server-launch.jar nogui
+          pause
+          EOF
+
+            printf 'eula=false\n' > eula.txt
+          )
+
+          zip -qr "${{ env.PACK_NAME }}-${{ steps.version.outputs.version }}-server.zip" server-pack
+
+      - name: Verify server pack sides
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import pathlib
+          import re
+          import zipfile
+
+          server_zip = next(pathlib.Path('.').glob('*-server.zip'))
+          server_files = {pathlib.PurePosixPath(name).name for name in zipfile.ZipFile(server_zip).namelist()}
+          client_files = set()
+          for path in pathlib.Path('mods').glob('*.pw.toml'):
+              text = path.read_text()
+              if re.search(r'^side = "client"$', text, re.MULTILINE):
+                  match = re.search(r'^filename = "([^"]+)"$', text, re.MULTILINE)
+                  if match:
+                      client_files.add(match.group(1))
+          leaked = sorted(client_files & server_files)
+          if leaked:
+              raise SystemExit('client-only mods in server pack: ' + ', '.join(leaked))
+          print(f'verified {len(client_files)} client-only mod entries')
+          PY
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: modpack-artifacts
+          path: |
+            ${{ env.PACK_NAME }}-*.mrpack
+            ${{ env.PACK_NAME }}-*-curseforge.zip
+            ${{ env.PACK_NAME }}-*-server.zip
+            release-changelog.md
+
+  publish:
+    name: Publish to CurseForge, Modrinth and GitHub
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: modpack-artifacts
+
+      - name: Publish release
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          modrinth-id: ${{ vars.MODRINTH_PROJECT_ID }}
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          modrinth-files: "${{ env.PACK_NAME }}-*.mrpack"
+
+          curseforge-id: ${{ vars.CURSEFORGE_PROJECT_ID }}
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+          curseforge-files: |
+            primary: ${{ env.PACK_NAME }}-*-curseforge.zip
+            extra: ${{ env.PACK_NAME }}-*-server.zip
+
+          github-tag: ${{ github.ref_name }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          files: |
+            ${{ env.PACK_NAME }}-*.mrpack
+            ${{ env.PACK_NAME }}-*-curseforge.zip
+            ${{ env.PACK_NAME }}-*-server.zip
+
+          name: "${{ env.PACK_NAME }} ${{ needs.build.outputs.version }}"
+          version: ${{ needs.build.outputs.version }}
+          version-type: release
+          changelog-file: release-changelog.md
+          loaders: fabric
+          game-versions: ${{ env.MINECRAFT_VERSION }}
+          java: '17'

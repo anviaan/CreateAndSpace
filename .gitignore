@@ -1,0 +1,8 @@
+*.mrpack
+*-curseforge.zip
+*-server.zip
+packwiz-installer-bootstrap.jar
+fabric-installer.jar
+server-pack/
+packwiz-serve.log
+release-changelog.md

@@ -1,0 +1,13 @@
+name = "[📦] No Unused Chunks"
+filename = "nounusedchunks-2.0.jar"
+side = "client"
+
+[download]
+hash-format = "sha1"
+hash = "71abbc99a35b63ba5c0f07ec3d6153ebd1c69a62"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4608603
+project-id = 645755

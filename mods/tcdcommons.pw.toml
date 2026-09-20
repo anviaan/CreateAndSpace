@@ -1,0 +1,14 @@
+name = "TCDCommons API"
+filename = "tcdcommons-3.12.3+fabric-1.20.1.jar"
+side = "client"
+
+[download]
+hash-format = "sha1"
+hash = "4f10da2e05caec006b7ee1c41bd2c95dc0bde0b7"
+mode = "url"
+url = "https://edge.forgecdn.net/files/5604/689/tcdcommons-3.12.3+fabric-1.20.1.jar"
+
+[update]
+[update.curseforge]
+file-id = 5604689
+project-id = 711539

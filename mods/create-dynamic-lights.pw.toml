@@ -1,0 +1,14 @@
+name = "Create: Dynamic Lights"
+filename = "create-dyn-light-fabric1.20.1+1.0.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "1cab18a29cf729ebacec005edd96097a9bbb9968"
+mode = "url"
+url = "https://edge.forgecdn.net/files/5724/522/create-dyn-light-fabric1.20.1+1.0.2.jar"
+
+[update]
+[update.curseforge]
+file-id = 5724522
+project-id = 1076861

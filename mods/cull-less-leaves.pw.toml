@@ -1,0 +1,13 @@
+name = "Cull Less Leaves"
+filename = "Cull Less Leaves-1.4.2+1.21-fabric.jar"
+side = "client"
+
+[download]
+hash-format = "sha1"
+hash = "fb6bc41a024e0f0f14ded097025d205a240a60b5"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5844813
+project-id = 619718

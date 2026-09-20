@@ -1,0 +1,13 @@
+name = "Reinforced Barrels"
+filename = "reinforced-barrels-2.4.1+1.20.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "1256506543c5ca6fcef502c0d9623f53760671d7"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4594890
+project-id = 529875

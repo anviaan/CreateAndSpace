@@ -1,0 +1,15 @@
+# Repository and release files are not pack content.
+/.git/
+/.github/
+/docs/
+/CHANGELOG.md
+/release-changelog.md
+/.gitignore
+/.packwizignore
+/*.mrpack
+/*-curseforge.zip
+/*-server.zip
+/packwiz-installer-bootstrap.jar
+/fabric-installer.jar
+/server-pack/
+/packwiz-serve.log

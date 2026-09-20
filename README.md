@@ -6,4 +6,24 @@ If you encounter any issues with the mod pack, or if you have suggestions for ne
 
 [Server Pack Here!](https://curseforge.com/minecraft/modpacks/createandspace/files/4800995)
 
+## Releases
+
+The pack is maintained with packwiz. Push a tag to build and publish the
+Modrinth pack, CurseForge pack, and server pack:
+
+```bash
+git tag v3.4-1.20.1
+git push origin v3.4-1.20.1
+```
+
+Add a matching release section to `CHANGELOG.md` before pushing the tag. The
+section is published as the version description on Modrinth, CurseForge, and
+GitHub Releases.
+
+The repository needs these GitHub Actions secrets: `MODRINTH_TOKEN` and
+`CURSEFORGE_TOKEN`. Configure the project IDs as repository variables named
+`MODRINTH_PROJECT_ID` and `CURSEFORGE_PROJECT_ID`.
+
+[Packwiz developer guide](docs/DEVELOPMENT.md)
+
 [<img src="https://i.imgur.com/RJPr4Ij.png">](https://billing.kinetichosting.net/aff.php?aff=127)

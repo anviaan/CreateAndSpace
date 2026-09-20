@@ -1,0 +1,9 @@
+#Sat Jan 20 10:20:39 PET 2024
+taaEnabled=false
+windEffectsEnabled=false
+fogEnabled=false
+motionblurToggle=false
+bloomEnabled=false
+transparencyBlurEnabled=false
+overrideWaterTexture=false
+imageSharpenEnabled=false
