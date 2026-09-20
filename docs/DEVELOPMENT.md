@@ -7,7 +7,7 @@ repository root.
 
 - Git
 - Go 1.24 or newer
-- Java 17
+- Java 21 or newer
 - `packwiz` available on your `PATH`
 
 Install packwiz:
@@ -28,23 +28,6 @@ packwiz --help
   already exist.
 - `.packwizignore`: repository files that are excluded from the pack.
 
-## Normal workflow
-
-Run these commands from the repository root:
-
-```bash
-git checkout -b mod/name-of-change
-
-# Add or update pack files.
-packwiz refresh --build
-packwiz list -s client
-packwiz list -s server
-
-git diff -- pack.toml index.toml mods/
-git status
-```
-
-Always include `index.toml` with metadata changes.
 
 ## Adding a mod
 
@@ -57,21 +40,12 @@ packwiz curseforge add <slug>
 packwiz curseforge add --addon-id <project-id> --file-id <file-id>
 ```
 
-Example:
-
-```bash
-packwiz curseforge add --addon-id 394468 --file-id 5485654
-```
-
 ### Modrinth
 
 ```bash
 packwiz modrinth add <slug>
 packwiz modrinth add --project-id <project-id> --version-id <version-id>
 ```
-
-Always choose a version compatible with Minecraft `1.20.1` and Fabric. Explicit
-IDs prevent selecting the wrong result from a search.
 
 ### Set the mod side
 
@@ -104,9 +78,6 @@ packwiz update <name>
 
 # Update all external files.
 packwiz update --all
-
-# Remove a mod interactively.
-packwiz remove
 ```
 
 Always review and test the changes before pushing:
@@ -150,8 +121,8 @@ Refresh the index before exporting:
 
 ```bash
 packwiz refresh --build
-packwiz modrinth export -o CreateAndSpace-3.4.mrpack
-packwiz curseforge export -o CreateAndSpace-3.4-curseforge.zip
+packwiz modrinth export -o CreateAndSpace-x.x.mrpack
+packwiz curseforge export -o CreateAndSpace-x.x-curseforge.zip
 ```
 
 CurseForge exports can also be filtered explicitly:
@@ -193,7 +164,7 @@ mkdir -p server-pack
 cd server-pack
 java -jar ../fabric-installer.jar server \
   -mcversion 1.20.1 \
-  -loader 0.16.9 \
+  -loader 0.19.5 \
   -downloadMinecraft
 java -jar ../packwiz-installer-bootstrap.jar -g -s server \
   http://127.0.0.1:8080/pack.toml

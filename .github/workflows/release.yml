@@ -11,7 +11,7 @@ permissions:
 env:
   PACK_NAME: CreateAndSpace
   MINECRAFT_VERSION: '1.20.1'
-  FABRIC_LOADER: '0.16.9'
+  FABRIC_LOADER: '0.19.5'
   FABRIC_INSTALLER: '1.1.2'
 
 jobs:
@@ -63,7 +63,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '17'
+          java-version: '21'
 
       - name: Install packwiz
         shell: bash
@@ -114,7 +114,7 @@ jobs:
               http://127.0.0.1:8080/pack.toml
 
             rm -rf resourcepacks shaderpacks
-            rm -f options.txt PotatoShaders_v1.0d.zip
+            rm -f options.txt
 
             cat > LaunchServer.sh <<'EOF'
           #!/usr/bin/env sh
@@ -203,4 +203,4 @@ jobs:
           changelog-file: release-changelog.md
           loaders: fabric
           game-versions: ${{ env.MINECRAFT_VERSION }}
-          java: '17'
+          java: '21'

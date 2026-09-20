@@ -1,14 +1,13 @@
 name = "Create: Let The Adventure Begin"
-filename = "create_ltab-2.3.3.jar"
+filename = "create_ltab-4.1.0.jar"
 side = "both"
 
 [download]
-hash-format = "sha1"
-hash = "f86170034819f95232040224438424d90a166df6"
-mode = "url"
-url = "https://edge.forgecdn.net/files/6030/184/create_ltab-2.3.3.jar"
+url = "https://cdn.modrinth.com/data/fUa6OtBG/versions/dQQazoxf/create_ltab-4.1.0.jar"
+hash-format = "sha512"
+hash = "05d2c6df728fbfe8d3522ffd88be492be5dfa6f06c806dc1f6d948afff39455f695add1edbb38fee2ed7f197668d13b5d72909bc60192c40d94df3ff0048d138"
 
 [update]
-[update.curseforge]
-file-id = 6030184
-project-id = 1007872
+[update.modrinth]
+mod-id = "fUa6OtBG"
+version = "dQQazoxf"

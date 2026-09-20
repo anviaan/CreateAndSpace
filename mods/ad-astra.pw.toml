@@ -1,13 +1,13 @@
 name = "Ad Astra"
-filename = "ad_astra-fabric-1.20.1-1.15.19.jar"
+filename = "ad_astra-fabric-1.20.1-1.15.21.jar"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "f5f13b1431c44b6fafe37ec7b69d9fd9b44fb8bd"
+hash = "098d64f9d45fb0122fddd4ebcf411f5b3e5f36d7"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 5914895
+file-id = 8833668
 project-id = 635042

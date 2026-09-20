@@ -1,13 +1,13 @@
 name = "Create: Unbreakable Tools"
-filename = "CreateUnbreakableTools-1.5+fabric-1.20.1-build.6.jar"
+filename = "CreateUnbreakableTools-1.9-1.20.1-fabric-13.jar"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "141086c75e0d2b7bac0b4978dd3c9a8f90f0b374"
+hash = "e6fcde12ec5870de40c8d36fd170cd4962cfab88"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 6025535
+file-id = 7199927
 project-id = 963802

@@ -9,7 +9,7 @@
 /*.mrpack
 /*-curseforge.zip
 /*-server.zip
-/packwiz-installer-bootstrap.jar
-/fabric-installer.jar
+*.jar
+/libraries/
 /server-pack/
 /packwiz-serve.log
