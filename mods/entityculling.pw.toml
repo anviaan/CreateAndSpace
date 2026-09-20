@@ -5,7 +5,7 @@ side = "client"
 [download]
 hash-format = "sha1"
 hash = "070d5dd11d0e4008d24794803ab3fdab9d0c2cce"
-mode = "metadata:curseforge"
+url = "https://edge.forgecdn.net/files/8929/252/entityculling-fabric-1.11.1-mc1.20.1.jar"
 
 [update]
 [update.curseforge]

@@ -5,7 +5,7 @@ side = "client"
 [download]
 hash-format = "sha1"
 hash = "803d78d6d26356fe2f354725204df391e62abfc5"
-mode = "metadata:curseforge"
+url = "https://edge.forgecdn.net/files/8925/062/notenoughanimations-fabric-1.12.6-mc1.20.1.jar"
 
 [update]
 [update.curseforge]
