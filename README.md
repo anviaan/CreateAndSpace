@@ -20,9 +20,9 @@ Add a matching release section to `CHANGELOG.md` before pushing the tag. The
 section is published as the version description on Modrinth, CurseForge, and
 GitHub Releases.
 
-The repository needs these GitHub Actions secrets: `MODRINTH_TOKEN` and
-`CURSEFORGE_TOKEN`. Configure the project IDs as repository variables named
-`MODRINTH_PROJECT_ID` and `CURSEFORGE_PROJECT_ID`.
+The release workflow publishes to Modrinth project `ItIhxk5J` and CurseForge project
+`872690`. It only needs the GitHub Actions secrets `MODRINTH_TOKEN` and
+`CURSEFORGE_TOKEN`.
 
 [Packwiz developer guide](docs/DEVELOPMENT.md)
 
