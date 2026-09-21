@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.6.1] - 2026-09-20
+
+### Fixed
+
+- Added CurseForge metadata for Fabric API so the exported modpack includes it in manifest.json.
+
 ## [3.6] - 2026-09-20
 
 ### Added

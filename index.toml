@@ -2,7 +2,7 @@ hash-format = "sha256"
 
 [[files]]
 file = "README.md"
-hash = "b3509ee8879b9050dacc1c0703ccf15f6758f5851fa938c7368b9d09eb350cce"
+hash = "c8c4c138edbf9f256da90d32f610f47ec4fc9adb3e652c6f42e3f1e87e7d0c99"
 
 [[files]]
 file = "configureddefaults/README.md"
@@ -753,7 +753,7 @@ metafile = true
 
 [[files]]
 file = "mods/fabric-api.pw.toml"
-hash = "f42dcc815231697e3d5038e7e34e2ef6637a7bf3e2fe077e4eafb0488f871b9a"
+hash = "f7d840cbafce083a51d0ec3fac22fa02aefb8e77551e27ab59af9ddce9b02b63"
 metafile = true
 
 [[files]]
