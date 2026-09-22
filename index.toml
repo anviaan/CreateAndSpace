@@ -290,7 +290,7 @@ hash = "4b3c1cf8a7565111be25bb224956fb8806388e2272ea7bc82aaac20e8f28be61"
 
 [[files]]
 file = "configureddefaults/config/isxander-main-menu-credits.json"
-hash = "5cab1805371861115d53060a8de7e7c47141267e550709e7b49fc89cd0b97127"
+hash = "f22671634736d6ace7b80d63053837a0a954d89759776f5ae85493658046cc24"
 
 [[files]]
 file = "configureddefaults/config/jade/hide-blocks.json"
@@ -498,11 +498,11 @@ hash = "82caee9b1f532332c798ee216c9a9ba5857c35e58afacba44946d9264fc05b36"
 
 [[files]]
 file = "configureddefaults/kubejs/config/client.properties"
-hash = "9a02ae5156a2456b3a70fbf465c4f882fb8cacc85db0bd1580b1790a1c7f0f01"
+hash = "878f12ba7dd7f1ef88cb8a8e3458a0fa24e72dc2ffd1219e35be5407d0c27686"
 
 [[files]]
 file = "configureddefaults/kubejs/config/common.properties"
-hash = "9684998e16dce9f1c63a2fec4729e737b7b89792e658f372efb691c5227b3f5f"
+hash = "19aca98855a11c75312f4da8b862130ea0ec55864eddf3b4f8abe5838da83aa2"
 
 [[files]]
 file = "configureddefaults/kubejs/config/packicon.png"
@@ -515,11 +515,6 @@ hash = "20e8d4e7c06a71c7b3e171285aa2caef1780c9558e9f86822af1e13684a4f874"
 [[files]]
 file = "configureddefaults/shaderpacks/ComplementaryReimagined_r5.9.3.zip.txt"
 hash = "9fc94e49590543c6b8c1813545e00c6406f41b7596ee7c1e845c0180f99cae11"
-
-[[files]]
-file = "mods/absolute-order.pw.toml"
-hash = "5d877553da8bdf1c92ed9050c99c99fc8b079f962a1fc7cb3d4a19667aa68566"
-metafile = true
 
 [[files]]
 file = "mods/ad-astra.pw.toml"
@@ -1073,7 +1068,7 @@ metafile = true
 
 [[files]]
 file = "options.txt"
-hash = "0a568867cc6da75f1962df920ce5dcf02e1d0d85f4f89bc0f34c184a12214269"
+hash = "88f6a0ffa238229a8e2c3e74163d5e655dbdfa9932853dbf3c6b4d8d76214a40"
 
 [[files]]
 file = "resourcepacks/create-darkmode.pw.toml"

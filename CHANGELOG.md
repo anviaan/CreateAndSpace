@@ -2,6 +2,10 @@
 
 ## [3.6.1] - 2026-09-20
 
+### Removed
+
+- Absolute Order
+
 ### Fixed
 
 - Added CurseForge metadata for Fabric API so the exported modpack includes it in manifest.json.

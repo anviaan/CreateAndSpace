@@ -1,11 +1,11 @@
 name = "CreateAndSpace-1.20.1"
-version = "3.6"
+version = "3.6.1"
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "aa37f6201beb1bc2a1b1c149128df579586008bbefe4e40ac1d71eeb93b40f8a"
+hash = "a0f949e49a4da7dd890e268ad7980ce4901325a4fecfae221c58c987cf354d67"
 
 [versions]
 fabric = "0.19.5"
