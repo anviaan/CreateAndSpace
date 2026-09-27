@@ -54,7 +54,7 @@ hash = "ed49bca4e5ca31967cd7c9a64cd9a377cfbfe16a53538add5c48df87a18be84a"
 
 [[files]]
 file = "configureddefaults/config/c2me.toml"
-hash = "b994a8ab1f787a0dec12496834ec5f5059dbba2fe1175adfd0288408a7235290"
+hash = "2c23f85252e18090ee9734f2ab942706efcef2760619fb68be3009ce8fc9e5ba"
 
 [[files]]
 file = "configureddefaults/config/cardinal-components-api.properties"
@@ -290,7 +290,7 @@ hash = "4b3c1cf8a7565111be25bb224956fb8806388e2272ea7bc82aaac20e8f28be61"
 
 [[files]]
 file = "configureddefaults/config/isxander-main-menu-credits.json"
-hash = "f22671634736d6ace7b80d63053837a0a954d89759776f5ae85493658046cc24"
+hash = "facb48036d526b5248644d5f6df792bc0edaf5e83e7a990f7068898d73d3b201"
 
 [[files]]
 file = "configureddefaults/config/jade/hide-blocks.json"
@@ -557,6 +557,11 @@ hash = "eb0d74103b07e202b36d7e7e0957afc054d9622acf8ecb738e5856b5144a7b3b"
 metafile = true
 
 [[files]]
+file = "mods/better-archeology.pw.toml"
+hash = "84570373e2f91da22a1e0b716a6e42ca09a49f81bc2020d6148a7abfcf9cf75b"
+metafile = true
+
+[[files]]
 file = "mods/better-mount-hud.pw.toml"
 hash = "273bd2c1a8ef4acc42d64672e75a9942b14fae0fad2ab419951e9f2ca1638607"
 metafile = true
@@ -618,7 +623,7 @@ metafile = true
 
 [[files]]
 file = "mods/cloth-config.pw.toml"
-hash = "41a3dc271859b118417946d2fdb2408523563b2f4f49048073672a342fb1aebf"
+hash = "ae11fe7c63207b7257ecb782d421655c6f56adb551b78ad430066edc94bee3b1"
 metafile = true
 
 [[files]]
@@ -789,6 +794,11 @@ metafile = true
 [[files]]
 file = "mods/full-brightness-toggle.pw.toml"
 hash = "8117fb8d56953dd55519a1e2b8496ee98f6ff7a703d3a8025aa715ef3832b9c5"
+metafile = true
+
+[[files]]
+file = "mods/geckolib.pw.toml"
+hash = "28847e43f90930620450c9a4db546673a8c709ea0c6cdf2e4d37d9cb25a11206"
 metafile = true
 
 [[files]]
@@ -1012,6 +1022,11 @@ hash = "c9707be9953f87c752fc750bc7f54d6d1c10d74e53b7a86fb55357c977c4fd1b"
 metafile = true
 
 [[files]]
+file = "mods/supermartijn642s-config-lib.pw.toml"
+hash = "d8fea7b65f0e5ce3e77bdc748bb114439859956ab74b7b0a10ec5286b5da4889"
+metafile = true
+
+[[files]]
 file = "mods/supplementaries.pw.toml"
 hash = "0fa6e96cf6d8de33052716172499983140588b8e79b22b5a848bf39102ea46cf"
 metafile = true
@@ -1019,6 +1034,11 @@ metafile = true
 [[files]]
 file = "mods/tcdcommons.pw.toml"
 hash = "88e7c6ad31a4123ead834b3bf30b2ee72e75591c88a2b489e07c772ca0dd5702"
+metafile = true
+
+[[files]]
+file = "mods/terrablender-fabric.pw.toml"
+hash = "b69ac7037683a4ff97a93efb144075708409de8207d6572d56dbcc69c2025445"
 metafile = true
 
 [[files]]
@@ -1034,6 +1054,11 @@ metafile = true
 [[files]]
 file = "mods/travelers-backpack-fabric.pw.toml"
 hash = "8a83c8cef4a6d03cfaeaeccaabe54abfc55ad1b5d31a9a3067065b979f8501a7"
+metafile = true
+
+[[files]]
+file = "mods/travelers-titles-fabric.pw.toml"
+hash = "31b45a23d9e7de7cdb4b34eca8d43d59277c002dee5ac6c6765cce4d8fa1c8fa"
 metafile = true
 
 [[files]]
@@ -1059,6 +1084,36 @@ metafile = true
 [[files]]
 file = "mods/youre-in-grave-danger.pw.toml"
 hash = "48b8a677eea2a71da6691bafbebbf256374df5411a867a55be12c83c54c1bb3a"
+metafile = true
+
+[[files]]
+file = "mods/yungs-api-fabric.pw.toml"
+hash = "238ac28ffc1a311a782fa569021f3cfc93c2d5ed7773b3273fdef736b80d9fb3"
+metafile = true
+
+[[files]]
+file = "mods/yungs-better-caves-fabric.pw.toml"
+hash = "30c4e43a6c1b53cb6fe5a8ac6123ca3253f1c840fcca18633296a153edb2dcad"
+metafile = true
+
+[[files]]
+file = "mods/yungs-better-mineshafts-fabric.pw.toml"
+hash = "4b051a6f31f33f629199e2033a5773fa25e24fcdaebf250c96f95a96f629b758"
+metafile = true
+
+[[files]]
+file = "mods/yungs-bridges-fabric.pw.toml"
+hash = "4147ca397d51f92d2aa93d07d4fc24bd09774724088072baf73f5f39aec074f1"
+metafile = true
+
+[[files]]
+file = "mods/yungs-cave-biomes-fabric.pw.toml"
+hash = "f51562b7a2f43faf1bf9eea1262e595a18513bf1e26117c044057d811f02a2b7"
+metafile = true
+
+[[files]]
+file = "mods/yungs-extras-fabric.pw.toml"
+hash = "c61d03ecba29f1d678c110b37010eabeb207006c7d00966b379b92edbd69f773"
 metafile = true
 
 [[files]]

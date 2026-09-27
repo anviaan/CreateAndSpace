@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.7] - 2026-09-26
+
+### Added
+
+- YUNG's Bridges, YUNG's Extras, YUNG's Better Mineshafts, YUNG's Better Caves, YUNG's Cave Biomes, Better Archeology, and Traveler's Titles.
+- Required libraries: YUNG's API, TerraBlender, GeckoLib, and SuperMartijn642's Config Lib.
+
+### Changed
+
+- Disabled C2ME threaded world generation to avoid YUNG's Better Caves 1.20.1 compatibility issues.
+
 ## [3.6.1] - 2026-09-20
 
 ### Removed
