@@ -184,17 +184,17 @@ jobs:
             java -jar ../packwiz-installer-bootstrap.jar -g -s server \
               http://127.0.0.1:8080/pack.toml
 
-            python3 - <<'PY'
-            from pathlib import Path
-            import shutil
+          python3 - <<'PY'
+          from pathlib import Path
+          import shutil
 
-            for name in ('resourcepacks', 'shaderpacks'):
-                for path in Path('.').rglob(name):
-                    if path.is_dir():
-                        shutil.rmtree(path)
-            for path in Path('.').rglob('options.txt'):
-                path.unlink()
-            PY
+          for name in ('resourcepacks', 'shaderpacks'):
+              for path in Path('.').rglob(name):
+                  if path.is_dir():
+                      shutil.rmtree(path)
+          for path in Path('.').rglob('options.txt'):
+              path.unlink()
+          PY
 
             cat > LaunchServer.sh <<'EOF'
           #!/usr/bin/env sh
