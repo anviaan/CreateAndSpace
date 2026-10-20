@@ -1,6 +1,7 @@
 name = "Configured Defaults"
 filename = "ConfiguredDefaults-v8.0.4-1.20.1-Fabric.jar"
 side = "both"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 6060025
 project-id = 930131
+[update.modrinth]
+mod-id = "SISoSFPP"
+version = "40ZQedAc"

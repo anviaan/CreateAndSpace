@@ -1,13 +1,17 @@
 name = "Not Enough Animations"
 filename = "notenoughanimations-fabric-1.12.6-mc1.20.1.jar"
 side = "client"
+update-source = "curseforge"
 
 [download]
+url = "https://edge.forgecdn.net/files/8925/062/notenoughanimations-fabric-1.12.6-mc1.20.1.jar"
 hash-format = "sha1"
 hash = "803d78d6d26356fe2f354725204df391e62abfc5"
-url = "https://edge.forgecdn.net/files/8925/062/notenoughanimations-fabric-1.12.6-mc1.20.1.jar"
 
 [update]
 [update.curseforge]
 file-id = 8925062
 project-id = 433760
+[update.modrinth]
+mod-id = "MPCX6s5C"
+version = "RzJ39lca"

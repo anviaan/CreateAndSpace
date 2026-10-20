@@ -1,6 +1,7 @@
 name = "Better Third Person"
 filename = "BetterThirdPerson-Fabric-1.20-1.9.0.jar"
 side = "client"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 4596636
 project-id = 435044
+[update.modrinth]
+mod-id = "G1s2WpNo"
+version = "1yJzEpzh"

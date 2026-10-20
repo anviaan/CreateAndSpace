@@ -1,6 +1,7 @@
 name = "Dynamic FPS"
 filename = "dynamic-fps-3.11.4+minecraft-1.20.0-fabric.jar"
 side = "client"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 7546904
 project-id = 335493
+[update.modrinth]
+mod-id = "LQ3K71Q1"
+version = "QwPQBhiQ"

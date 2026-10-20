@@ -1,6 +1,7 @@
 name = "Advancement Plaques [Fabric]"
 filename = "AdvancementPlaques-1.20.1-fabric-1.6.7.jar"
 side = "client"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 5762252
 project-id = 514882
+[update.modrinth]
+mod-id = "9NM0dXub"
+version = "xX9KGjcD"

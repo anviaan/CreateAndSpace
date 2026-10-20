@@ -1,6 +1,7 @@
 name = "Blur+"
 filename = "blur-3.1.0.jar"
 side = "client"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 4578291
 project-id = 393563
+[update.modrinth]
+mod-id = "NK39zBp2"
+version = "dki8Ab2D"

@@ -1,6 +1,7 @@
 name = "Automobility"
 filename = "automobility-0.4.2+1.20.1-fabric.jar"
 side = "both"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 4613499
 project-id = 658286
+[update.modrinth]
+mod-id = "rqIsPf9F"
+version = "G97BY8OB"

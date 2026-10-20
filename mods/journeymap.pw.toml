@@ -1,6 +1,7 @@
 name = "JourneyMap"
 filename = "journeymap-fabric-1.20.1-6.0.6.jar"
 side = "client"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 8923661
 project-id = 32274
+[update.modrinth]
+mod-id = "lfHFW1mp"
+version = "9Msq5MJs"

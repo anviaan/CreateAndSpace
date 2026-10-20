@@ -1,6 +1,7 @@
 name = "YUNG's Better Caves (Fabric)"
 filename = "YungsBetterCaves-1.20.1-Fabric-2.0.7.jar"
 side = "both"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 8806068
 project-id = 408465
+[update.modrinth]
+mod-id = "Dfu00ggU"
+version = "vIYfXCs1"

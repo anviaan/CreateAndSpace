@@ -1,6 +1,7 @@
 name = "Better Mount HUD"
 filename = "bettermounthud-1.2.2.jar"
 side = "client"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 4574355
 project-id = 475358
+[update.modrinth]
+mod-id = "kqJFAPU9"
+version = "h1QpxElt"

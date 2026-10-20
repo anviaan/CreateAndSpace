@@ -1,6 +1,7 @@
 name = "OpenBlocks Elevator (Fabric)"
 filename = "openblocks-1.0.0-1.20_1.20.1.jar"
 side = "both"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 8474298
 project-id = 667474
+[update.modrinth]
+mod-id = "v8XOAQUM"
+version = "G3ihwdKV"

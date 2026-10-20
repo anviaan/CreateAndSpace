@@ -1,6 +1,7 @@
 name = "Create Deco Fabric"
 filename = "createdeco-2.1.1-1.20.1-fabric.jar"
 side = "both"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 7721695
 project-id = 739872
+[update.modrinth]
+mod-id = "sMvUb4Rb"
+version = "OHgy53E6"

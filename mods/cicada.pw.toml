@@ -1,6 +1,7 @@
 name = "CICADA"
 filename = "cicada-lib-0.14.3+1.20.1.jar"
 side = "client"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 7068951
 project-id = 989574
+[update.modrinth]
+mod-id = "IwCkru1D"
+version = "BWXjXtWI"

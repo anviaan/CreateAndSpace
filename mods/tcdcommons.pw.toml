@@ -1,13 +1,17 @@
 name = "TCDCommons API"
 filename = "tcdcommons-3.12.3.3+fabric-1.20.1.jar"
 side = "client"
+update-source = "curseforge"
 
 [download]
+url = "https://edge.forgecdn.net/files/6492/951/tcdcommons-3.12.3.3+fabric-1.20.1.jar"
 hash-format = "sha1"
 hash = "41416a9f849b170ce68139256d317daa91a82d70"
-url = "https://edge.forgecdn.net/files/6492/951/tcdcommons-3.12.3.3+fabric-1.20.1.jar"
 
 [update]
 [update.curseforge]
 file-id = 6492951
 project-id = 711539
+[update.modrinth]
+mod-id = "Eldc1g37"
+version = "BBxTOVSm"

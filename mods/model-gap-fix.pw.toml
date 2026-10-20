@@ -1,6 +1,7 @@
 name = "Model Gap Fix"
 filename = "modelfix-1.15-fabric.jar"
 side = "both"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 5200948
 project-id = 676136
+[update.modrinth]
+mod-id = "QdG47OkI"
+version = "GkLb4bRl"

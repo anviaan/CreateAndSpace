@@ -1,6 +1,7 @@
 name = "LazyDFU"
 filename = "lazydfu-0.1.3.jar"
 side = "both"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 3821870
 project-id = 433518
+[update.modrinth]
+mod-id = "hvFnDODi"
+version = "4SHylIO9"

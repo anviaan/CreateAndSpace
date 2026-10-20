@@ -1,6 +1,7 @@
 name = "Clear Despawn [Fabric]"
 filename = "ClearDespawn-fabric-1.20.2-1.1.15.jar"
 side = "client"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 4901772
 project-id = 308793
+[update.modrinth]
+mod-id = "yoJJjRRE"
+version = "jpRIGRtD"

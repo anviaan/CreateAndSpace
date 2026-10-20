@@ -1,29 +1,44 @@
 # Create And Space
 
-This Fabric based Modpack focuses on the Create Mod and you will be able to use the Ad Astra mod to explore the space. And for a better experience it includes a series of Performance Mods such as Sodium and Lithium.
+Create And Space is a **Fabric 1.20.1** modpack built around [Create](https://modrinth.com/mod/create), automation, exploration and space travel with [Ad Astra](https://modrinth.com/mod/ad-astra). It also includes performance and quality-of-life mods to make long survival worlds more comfortable.
 
-If you encounter any issues with the mod pack, or if you have suggestions for new mods that you would like to see included, please let us know through Github. You can submit issues or pull requests using the appropriate tabs, and I will do my best to address them as quickly as possible.
+## Install the modpack
 
-[Server Pack Here!](https://curseforge.com/minecraft/modpacks/createandspace/files/4800995)
+Choose the launcher you already use:
 
-## Releases
+- [Install with Modrinth](https://modrinth.com/modpack/createandspace)
+- [Install with CurseForge](https://www.curseforge.com/minecraft/modpacks/createandspace)
 
-The pack is maintained with packwiz. Push a tag to build and publish the
-Modrinth pack, CurseForge pack, and server pack:
+The launcher will create the profile and download the required mods. Players do
+**not** need to install Packwiz or any Packwiz-related tool.
 
-```bash
-git tag v3.4-1.20.1
-git push origin v3.4-1.20.1
-```
+## Play on a server
 
-Add a matching release section to `CHANGELOG.md` before pushing the tag. The
-section is published as the version description on Modrinth, CurseForge, and
-GitHub Releases.
+Download the latest server pack from the [CurseForge files page](https://www.curseforge.com/minecraft/modpacks/createandspace/files/all). Extract it into a new folder, use the included launch script, and run it with Java 21. Read and accept Minecraft's EULA in `eula.txt` before starting the server.
 
-The release workflow publishes to Modrinth project `ItIhxk5J` and CurseForge project
-`872690`. It only needs the GitHub Actions secrets `MODRINTH_TOKEN` and
-`CURSEFORGE_TOKEN`.
+The server pack is separate from the client profile: it already contains the
+Fabric server files and the server-side mods.
 
-[Packwiz developer guide](docs/DEVELOPMENT.md)
+## Important: Packwiz fork used by this project
+
+This project is built with a **different Packwiz distribution** from the usual
+upstream binary. It uses **v0.2.0 of the `andre-carbajal/packwiz` fork** to
+keep the CurseForge and Modrinth metadata synchronized.
+
+- [Fork repository: andre-carbajal/packwiz](https://github.com/andre-carbajal/packwiz)
+- [Fork command reference](https://github.com/andre-carbajal/packwiz/wiki/Commands)
+- [Importing and exporting](https://github.com/andre-carbajal/packwiz/wiki/Importing-and-Exporting)
+
+This is an internal maintenance detail. It does not change how players install
+or launch the modpack through Modrinth or CurseForge.
+
+## Support
+
+Report bugs or suggest improvements in the [GitHub issue tracker](https://github.com/anviaan/CreateAndSpace/issues). Please include the modpack version, launcher, Minecraft version and a relevant log or crash report.
+
+## Maintainers
+
+- [Packwiz developer guide](docs/DEVELOPMENT.md)
+- [Packwiz server installation guide](https://packwiz.infra.link/tutorials/installing/packwiz-installer/)
 
 [<img src="https://i.imgur.com/RJPr4Ij.png">](https://billing.kinetichosting.net/aff.php?aff=127)

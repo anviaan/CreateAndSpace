@@ -1,6 +1,7 @@
 name = "Indium"
 filename = "indium-1.0.36+mc1.20.1.jar"
 side = "client"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 6237037
 project-id = 459496
+[update.modrinth]
+mod-id = "Orvt0mRa"
+version = "nQHYSjxO"

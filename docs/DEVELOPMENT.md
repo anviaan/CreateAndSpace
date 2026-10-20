@@ -6,17 +6,20 @@ repository root.
 ## Requirements
 
 - Git
-- Go 1.24 or newer
-- Java 21 or newer
-- `packwiz` available on your `PATH`
+- Java 21 (use a compatible JDK 21 for the server)
+- `andre-carbajal/packwiz` v0.2.0 available on your `PATH`
+- A valid `CURSEFORGE_API_KEY` only when resolving cross-platform links
 
-Install packwiz:
+Install the pinned fork binary:
 
 ```bash
-go install github.com/packwiz/packwiz@latest
-export PATH="$(go env GOPATH)/bin:$PATH"
+brew install --cask andre-carbajal/tap/packwiz
 packwiz --help
+packwiz link --help
 ```
+
+Other platforms can use the matching asset from the
+[v0.2.0 release](https://github.com/andre-carbajal/packwiz/releases/tag/v0.2.0).
 
 ## Repository structure
 
@@ -70,6 +73,26 @@ packwiz refresh --build
 packwiz list -s server
 ```
 
+### Link identical files across platforms
+
+`packwiz link` adds a CurseForge or Modrinth reference for the exact same
+downloaded file. It does not treat similarly named versions as equivalent:
+
+```bash
+packwiz link <name>
+packwiz link --all
+packwiz link <name> --curseforge <exact-CurseForge-file-URL>
+packwiz link <name> --modrinth <exact-Modrinth-file-URL>
+```
+
+Review the generated metadata before committing. A failed link is expected for
+files that are not published with identical bytes on both platforms. The failed
+link does not remove or alter the original platform reference.
+
+When no exact counterpart exists, keep the file with its original platform
+metadata and let the exports include it as an override. Do not replace it with
+a different-byte version just to create a link.
+
 ## Updating or removing mods
 
 ```bash
@@ -92,7 +115,7 @@ git diff -- mods/ index.toml pack.toml
 In terminal 1, from the repository root:
 
 ```bash
-packwiz serve
+packwiz serve --host 127.0.0.1 --port 8080
 ```
 
 The development server runs at `http://127.0.0.1:8080` and refreshes the index
@@ -121,14 +144,19 @@ Refresh the index before exporting:
 
 ```bash
 packwiz refresh --build
-packwiz modrinth export -o CreateAndSpace-x.x.mrpack
-packwiz curseforge export -o CreateAndSpace-x.x-curseforge.zip
+packwiz modrinth export --allow-overrides -o CreateAndSpace-x.x.mrpack
+packwiz curseforge export --allow-overrides -o CreateAndSpace-x.x-curseforge.zip
 ```
+
+`--allow-overrides` preserves files that do not have a destination-platform
+reference. CurseForge may reject or hide files bundled this way, so inspect the
+generated archive before publishing.
 
 CurseForge exports can also be filtered explicitly:
 
 ```bash
-packwiz curseforge export -s client -o CreateAndSpace-3.4-client.zip
+packwiz curseforge export --allow-overrides -s client \
+  -o CreateAndSpace-3.4-client.zip
 ```
 
 Generated files are ignored by Git and should not be committed.
@@ -139,7 +167,7 @@ Generated files are ignored by Git and should not be committed.
 
 ```bash
 packwiz refresh --build
-packwiz curseforge export -s server \
+packwiz curseforge export --allow-overrides -s server \
   -o CreateAndSpace-3.4-server-mods.zip
 ```
 
@@ -156,7 +184,7 @@ curl -fsSL -o fabric-installer.jar \
 curl -fsSL -o packwiz-installer-bootstrap.jar \
   https://github.com/packwiz/packwiz-installer-bootstrap/releases/latest/download/packwiz-installer-bootstrap.jar
 
-packwiz serve &
+packwiz serve --host 127.0.0.1 --port 8080 &
 SERVE_PID=$!
 trap 'kill "$SERVE_PID" 2>/dev/null || true' EXIT
 
@@ -168,7 +196,23 @@ java -jar ../fabric-installer.jar server \
   -downloadMinecraft
 java -jar ../packwiz-installer-bootstrap.jar -g -s server \
   http://127.0.0.1:8080/pack.toml
+
+python3 - <<'PY'
+from pathlib import Path
+import shutil
+
+for name in ('resourcepacks', 'shaderpacks'):
+    for path in Path('.').rglob(name):
+        if path.is_dir():
+            shutil.rmtree(path)
+for path in Path('.').rglob('options.txt'):
+    path.unlink()
+PY
 ```
+
+`packwiz curseforge export --side server` only creates a side-filtered
+CurseForge ZIP; it is not a runnable Fabric server. The runnable server is the
+directory produced by Fabric Installer plus `packwiz-installer-bootstrap`.
 
 Start the server with:
 

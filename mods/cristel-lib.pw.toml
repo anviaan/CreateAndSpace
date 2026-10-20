@@ -1,6 +1,7 @@
 name = "Cristel Lib"
 filename = "cristellib-1.1.5-fabric.jar"
 side = "both"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 4861834
 project-id = 856996
+[update.modrinth]
+mod-id = "cl223EMc"
+version = "tBnivdbu"

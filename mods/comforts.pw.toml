@@ -1,6 +1,7 @@
 name = "Comforts"
 filename = "comforts-fabric-6.4.0+1.20.1.jar"
 side = "both"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 5503514
 project-id = 276951
+[update.modrinth]
+mod-id = "SaCpeal4"
+version = "pMr60Kkq"

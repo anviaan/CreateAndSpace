@@ -1,13 +1,17 @@
 name = "Exordium"
 filename = "exordium-fabric-1.4.2-mc1.20.1.jar"
 side = "client"
+update-source = "curseforge"
 
 [download]
+url = "https://edge.forgecdn.net/files/6927/926/exordium-fabric-1.4.2-mc1.20.1.jar"
 hash-format = "sha1"
 hash = "7c7928a5da501cd860ed8017e0595c77bbc54a12"
-url = "https://edge.forgecdn.net/files/6927/926/exordium-fabric-1.4.2-mc1.20.1.jar"
 
 [update]
 [update.curseforge]
 file-id = 6927926
 project-id = 681953
+[update.modrinth]
+mod-id = "DynYZEae"
+version = "Wpxm5HM3"

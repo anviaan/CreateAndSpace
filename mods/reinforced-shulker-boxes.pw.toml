@@ -1,6 +1,7 @@
 name = "Reinforced Shulker Boxes"
 filename = "reinforced-shulker-boxes-2.5.0+1.20.jar"
 side = "both"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 4713841
 project-id = 529874
+[update.modrinth]
+mod-id = "xlOwuSdN"
+version = "VPA2WJX5"

@@ -1,6 +1,7 @@
 name = "Stack Refill"
 filename = "stackrefill-1.20.1-4.9.jar"
 side = "client"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 6713333
 project-id = 411813
+[update.modrinth]
+mod-id = "mQWkB9ON"
+version = "3w2JG23r"

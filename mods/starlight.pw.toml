@@ -1,6 +1,7 @@
 name = "Starlight (Fabric)"
 filename = "starlight-1.1.2+fabric.dbc156f.jar"
 side = "both"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 4572096
 project-id = 521783
+[update.modrinth]
+mod-id = "H8CaAYZC"
+version = "XGIsoVGT"

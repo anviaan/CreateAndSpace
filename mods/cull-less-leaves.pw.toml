@@ -1,6 +1,7 @@
 name = "Cull Less Leaves"
 filename = "Cull Less Leaves-1.4.2+1.21-fabric.jar"
 side = "client"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 5844813
 project-id = 619718
+[update.modrinth]
+mod-id = "iG6ZHsUV"
+version = "4sXZok62"

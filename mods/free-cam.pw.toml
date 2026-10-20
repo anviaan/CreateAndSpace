@@ -1,6 +1,7 @@
 name = "Freecam"
 filename = "freecam-fabric-1.2.1+1.20.jar"
 side = "client"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 4643134
 project-id = 557076
+[update.modrinth]
+mod-id = "XeEZ3fK2"
+version = "dKy60O1Y"

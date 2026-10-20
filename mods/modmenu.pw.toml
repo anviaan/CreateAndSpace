@@ -1,6 +1,7 @@
 name = "Mod Menu"
 filename = "modmenu-7.2.2.jar"
 side = "client"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 5162837
 project-id = 308702
+[update.modrinth]
+mod-id = "mOgUt4GM"
+version = "lEkperf6"

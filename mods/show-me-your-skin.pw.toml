@@ -1,6 +1,7 @@
 name = "Show Me Your Skin! (Hide armor)"
 filename = "show-me-your-skin-1.9.0+1.20.jar"
 side = "client"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 5276058
 project-id = 622010
+[update.modrinth]
+mod-id = "bD7YqcA3"
+version = "acq6mVBP"

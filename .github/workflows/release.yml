@@ -13,6 +13,7 @@ env:
   MINECRAFT_VERSION: '1.20.1'
   FABRIC_LOADER: '0.19.5'
   FABRIC_INSTALLER: '1.1.2'
+  PACKWIZ_VERSION: '0.2.0'
 
 jobs:
   build:
@@ -54,32 +55,102 @@ jobs:
           )
           PY
 
-      - name: Setup Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.24'
-
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '21'
 
-      - name: Install packwiz
+      - name: Install packwiz fork
         shell: bash
         run: |
           set -euo pipefail
-          go install github.com/packwiz/packwiz@latest
-          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
+          asset="packwiz_${PACKWIZ_VERSION}_linux_amd64.tar.gz"
+          base="https://github.com/andre-carbajal/packwiz/releases/download/v${PACKWIZ_VERSION}"
+          curl -fsSL -o packwiz-checksums.txt "$base/checksums.txt"
+          curl -fsSL -o "$asset" "$base/$asset"
+          grep -E "[[:space:]]${asset}$" packwiz-checksums.txt | sha256sum --check
+          tar -xzf "$asset" packwiz
+          install -m 0755 packwiz "$RUNNER_TEMP/packwiz"
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+          "$RUNNER_TEMP/packwiz" link --help >/dev/null
 
       - name: Refresh pack index
         run: packwiz refresh --build
 
       - name: Export Modrinth pack
-        run: packwiz modrinth export -o "${{ env.PACK_NAME }}-${{ steps.version.outputs.version }}.mrpack"
+        run: packwiz modrinth export --allow-overrides -o "${{ env.PACK_NAME }}-${{ steps.version.outputs.version }}.mrpack"
 
       - name: Export CurseForge pack
-        run: packwiz curseforge export -o "${{ env.PACK_NAME }}-${{ steps.version.outputs.version }}-curseforge.zip"
+        run: packwiz curseforge export --allow-overrides -o "${{ env.PACK_NAME }}-${{ steps.version.outputs.version }}-curseforge.zip"
+
+      - name: Verify exported mods and CurseForge manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          import pathlib
+          import tomllib
+          import zipfile
+
+          expected = {}
+          for path in pathlib.Path('.').rglob('*.pw.toml'):
+              if path.parent.name != 'mods':
+                  continue
+              data = tomllib.loads(path.read_text(encoding='utf-8'))
+              if data.get('side', 'both') not in {'client', 'both'}:
+                  continue
+              expected[data['filename']] = data.get('update', {})
+
+          curseforge_zip = next(pathlib.Path('.').glob('*-curseforge.zip'))
+          with zipfile.ZipFile(curseforge_zip) as archive:
+              manifest = json.loads(archive.read('manifest.json'))
+              actual = {
+                  (int(entry['projectID']), int(entry['fileID']))
+                  for entry in manifest['files']
+              }
+              archive_names = set(archive.namelist())
+
+          missing = []
+          for filename, update in expected.items():
+              reference = update.get('curseforge')
+              linked = reference and (
+                  int(reference['project-id']), int(reference['file-id'])
+              ) in actual
+              overridden = f'overrides/mods/{filename}' in archive_names
+              if not linked and not overridden:
+                  missing.append(filename)
+          if missing:
+              raise SystemExit(f'missing CurseForge files or overrides: {sorted(missing)}')
+          if (306612, 8784061) not in actual:
+              raise SystemExit('Fabric API is missing from manifest.files')
+
+          modrinth_pack = next(pathlib.Path('.').glob('*.mrpack'))
+          with zipfile.ZipFile(modrinth_pack) as archive:
+              index = json.loads(archive.read('modrinth.index.json'))
+              indexed = {entry['path'] for entry in index['files']}
+              archive_names = set(archive.namelist())
+
+          missing = []
+          for filename in expected:
+              direct = f'mods/{filename}' in indexed
+              overridden = any(
+                  name.endswith(f'/mods/{filename}')
+                  for name in archive_names
+                  if name.startswith(('overrides/', 'client-overrides/', 'server-overrides/'))
+              )
+              if not direct and not overridden:
+                  missing.append(filename)
+          if missing:
+              raise SystemExit(f'missing Modrinth files or overrides: {sorted(missing)}')
+
+          print(
+              f'verified {len(expected)} client mods in both exports; '
+              f'{len(actual)} CurseForge manifest references and '
+              f'{len(archive_names)} archive entries checked'
+          )
+          PY
 
       - name: Build server pack
         shell: bash
@@ -91,7 +162,7 @@ jobs:
           curl -fsSL -o fabric-installer.jar \
             "https://maven.fabricmc.net/net/fabricmc/fabric-installer/${{ env.FABRIC_INSTALLER }}/fabric-installer-${{ env.FABRIC_INSTALLER }}.jar"
 
-          packwiz serve > packwiz-serve.log 2>&1 &
+          packwiz serve --host 127.0.0.1 --port 8080 > packwiz-serve.log 2>&1 &
           SERVE_PID=$!
           trap 'kill "$SERVE_PID" 2>/dev/null || true' EXIT
 
@@ -113,8 +184,17 @@ jobs:
             java -jar ../packwiz-installer-bootstrap.jar -g -s server \
               http://127.0.0.1:8080/pack.toml
 
-            rm -rf resourcepacks shaderpacks
-            rm -f options.txt
+            python3 - <<'PY'
+            from pathlib import Path
+            import shutil
+
+            for name in ('resourcepacks', 'shaderpacks'):
+                for path in Path('.').rglob(name):
+                    if path.is_dir():
+                        shutil.rmtree(path)
+            for path in Path('.').rglob('options.txt'):
+                path.unlink()
+            PY
 
             cat > LaunchServer.sh <<'EOF'
           #!/usr/bin/env sh

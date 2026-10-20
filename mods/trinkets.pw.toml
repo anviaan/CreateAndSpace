@@ -1,6 +1,7 @@
 name = "Trinkets (Fabric)"
 filename = "trinkets-3.7.2.jar"
 side = "both"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 5173501
 project-id = 341284
+[update.modrinth]
+mod-id = "5aaWibi9"
+version = "AHxQGtuC"

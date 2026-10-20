@@ -1,5 +1,15 @@
 # Changelog
 
+## [Unreleased] - 2026-10-20
+
+### Changed
+
+- Restored the nine platform-specific mod files and preserved their original CurseForge or Modrinth metadata.
+- Kept exact-byte linking with the [`andre-carbajal/packwiz`](https://github.com/andre-carbajal/packwiz) fork v0.2.0 while enabling `--allow-overrides` for the CurseForge and Modrinth client exports.
+- Updated release validation to confirm every client mod is present through a platform reference or an override.
+- Added reproducible Fabric server-pack generation with the client-only mods excluded.
+- Updated the player README and development documentation for the alternate Packwiz fork.
+
 ## [3.7] - 2026-09-26
 
 ### Added
@@ -40,4 +50,4 @@
 
 ### Fixed
 
-- Farmers Delight mod has been updated to the last version [#5](https://github.com/anviaan/CreateAndSpace/issues/5) , [#4](https://github.com/anviaan/CreateAndSpace/issues/4)
+- Farmers Delight mod has been updated to the last version [#5](https://github.com/anviaan/CreateAndSpace/issues/5), [#4](https://github.com/anviaan/CreateAndSpace/issues/4)

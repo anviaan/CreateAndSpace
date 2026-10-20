@@ -1,6 +1,7 @@
 name = "Extended Drawers"
 filename = "ExtendedDrawers-2.1.1+mc.1.20.1.jar"
 side = "both"
+update-source = "curseforge"
 
 [download]
 hash-format = "sha1"
@@ -11,3 +12,6 @@ mode = "metadata:curseforge"
 [update.curseforge]
 file-id = 5022286
 project-id = 616602
+[update.modrinth]
+mod-id = "AhtxbnpG"
+version = "jAVkcXz6"
